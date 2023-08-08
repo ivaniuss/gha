@@ -36,4 +36,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-      - run: docker run node-docker
+      - run: docker run -d -p 8000:8000 node-docker
