@@ -36,10 +36,12 @@ jobs:
           file: ./Dockerfile
           push: false
       - run: docker run -d -p 8000:8000 node-docker
-      - name: Configure AWS Credentials
+
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::790978269085:user/ivaniuss
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
       
